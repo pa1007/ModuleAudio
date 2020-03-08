@@ -9,5 +9,7 @@ public class ServoImpl extends Servo {
 
     public ServoImpl(Module main) throws IOException, I2CFactory.UnsupportedBusNumberException {
         super(main);
+        this.angle = Servo.STRAIGHT_ANGLE;
+        this.move(angle);
     }
 }

@@ -16,7 +16,7 @@ public class MotorsImpl {
     public static       Motor               MOTOR_2   = new MotorImpl(PCA9685Pin.PWM_05, RaspiPin.GPIO_02);
     private static      PCA9685GpioProvider provider;
 
-    public static PCA9685GpioProvider getProvider() {
+    public  static PCA9685GpioProvider getProvider() {
         if (provider == null) {
             try {
                 provider = new PCA9685GpioProvider(

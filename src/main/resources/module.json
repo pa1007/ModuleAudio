@@ -1,0 +1,14 @@
+{
+  "name": "Module vocal",
+  "id": 542,
+  "description": "This module will control the movement of the robot by voice",
+  "version": "v1",
+  "mainClass": "fr.pa1007.Audio",
+  "authors": [
+    "paul-alexandre",
+    "paulloupe",
+    "fran\u00e7ois",
+    "eros",
+    "martin"
+  ]
+}

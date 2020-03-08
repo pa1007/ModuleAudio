@@ -13,7 +13,6 @@ public class MotorImpl extends Motor {
         provider = MotorsImpl.getProvider();
         pwm = 1;
         this.output = gpio.provisionPwmOutputPin(provider, pwmPin, "Pulse 04");
-        provider = MotorsImpl.getProvider();
         init();
     }
 
@@ -65,13 +64,13 @@ public class MotorImpl extends Motor {
     @Override
     public void forwardWithoutChange(int speed) {
         provider.setPwm(pwmPin, speed);
-        //  forwardOutput.setState(PinState.HIGH);
+        forwardOutput.setState(PinState.LOW);
     }
 
     @Override
     public void reverseWithoutChange(int speed) {
         provider.setPwm(pwmPin, speed);
-        forwardOutput.setState(PinState.LOW);
+        forwardOutput.setState(PinState.HIGH);
     }
 
     @Override

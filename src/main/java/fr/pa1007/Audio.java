@@ -52,16 +52,16 @@ public class Audio extends Module {
                     case "STOP":
                         lM.stop();
                         break;
-                    case "HAUT":
+                    case "UP":
                         lM.forward();
                         break;
-                    case "BAS":
+                    case "DOWN":
                         lM.reverse();
                         break;
-                    case "GAUCHE":
+                    case "LEFT":
                         servo.move(servo.getAngle() - 1);
                         break;
-                    case "DROITE":
+                    case "RIGHT":
                         servo.move(servo.getAngle() + 1);
                         break;
                 }
@@ -80,7 +80,7 @@ public class Audio extends Module {
     @Override
     public void listener(ModuleLoadedEvent moduleLoadedEvent) {
         try {
-            serv = ServerUDP.getInstance();
+            serv = ServerUDP.getInstance(this);
             m1 = MotorsImpl.MOTOR_1;
             m2 = MotorsImpl.MOTOR_2;
             lM = new LinkedMotors(m1, m2);
