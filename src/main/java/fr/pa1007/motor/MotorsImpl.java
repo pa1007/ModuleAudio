@@ -6,17 +6,28 @@ import com.pi4j.io.gpio.RaspiPin;
 import com.pi4j.io.i2c.I2CBus;
 import com.pi4j.io.i2c.I2CFactory;
 import fr.pa1007.trobotframework.move.Motor;
+import fr.pa1007.trobotframework.move.Motors;
 import fr.pa1007.trobotframework.utils.Utils;
 import java.io.IOException;
 
 public class MotorsImpl {
 
     public static final int                 MAX_VALUE = 21999;
-    public static       Motor               MOTOR_1   = new MotorImpl(PCA9685Pin.PWM_04, RaspiPin.GPIO_00);
-    public static       Motor               MOTOR_2   = new MotorImpl(PCA9685Pin.PWM_05, RaspiPin.GPIO_02);
+    public static       Motor               MOTOR_1;
+    public static       Motor               MOTOR_2;
     private static      PCA9685GpioProvider provider;
 
-    public  static PCA9685GpioProvider getProvider() {
+    static {
+        try {
+            MOTOR_1 = Motors.getMotor(MotorImpl.class, PCA9685Pin.PWM_04, RaspiPin.GPIO_00);
+            MOTOR_2 = Motors.getMotor(MotorImpl.class, PCA9685Pin.PWM_05, RaspiPin.GPIO_02);
+        }
+        catch (ReflectiveOperationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static PCA9685GpioProvider getProvider() {
         if (provider == null) {
             try {
                 provider = new PCA9685GpioProvider(

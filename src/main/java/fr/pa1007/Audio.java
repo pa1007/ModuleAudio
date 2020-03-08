@@ -79,7 +79,7 @@ public class Audio extends Module {
 
     @Override
     public Class<ModuleLoadedEvent> getEventClass() {
-        return null;
+        return ModuleLoadedEvent.class;
     }
 
     @Override

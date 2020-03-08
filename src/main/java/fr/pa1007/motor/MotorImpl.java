@@ -1,13 +1,13 @@
 package fr.pa1007.motor;
 
-import com.pi4j.io.gpio.Pin;
 import com.pi4j.io.gpio.PinState;
+import com.pi4j.io.gpio.impl.PinImpl;
 import fr.pa1007.trobotframework.move.Motor;
 import fr.pa1007.trobotframework.utils.Utils;
 
 public class MotorImpl extends Motor {
 
-    public MotorImpl(Pin pwmPin, Pin pin) {
+    public MotorImpl(PinImpl pwmPin, PinImpl pin) {
         super(pwmPin, pin);
         gpio = Utils.getProvider();
         provider = MotorsImpl.getProvider();
