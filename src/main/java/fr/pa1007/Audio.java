@@ -58,12 +58,17 @@ public class Audio extends Module {
                     case "DOWN":
                         lM.reverse();
                         break;
+                    case "SLOW":
+                        lM.changeSpeed(MotorsImpl.MAX_VALUE / 4);
+                        break;
                     case "LEFT":
                         servo.move(servo.getAngle() - 1);
                         break;
                     case "RIGHT":
                         servo.move(servo.getAngle() + 1);
                         break;
+                    case "STRAIGHT":
+                        servo.move(Servo.STRAIGHT_ANGLE);
                 }
             }
         }
